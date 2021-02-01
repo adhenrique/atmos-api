@@ -14,6 +14,7 @@ class UserResource extends Resource
             'email' => $this->email,
             'access_period_start_date' => $this->access_period_start_date,
             'access_period_end_date' => $this->access_period_end_date,
+            'role_id' => $this->role_id,
         ];
 
         return $data;

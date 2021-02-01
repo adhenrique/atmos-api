@@ -18,6 +18,7 @@ class UserSeeder extends TableSeeder
                 'password' => Hash::make(12345678),
                 'access_period_start_date' => now(),
                 'access_period_end_date' => now()->add('1 year'),
+                'role_id' => 1,
             ],
         ];
     }

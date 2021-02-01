@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Domain\User;
+namespace App\Domain\Role;
 
 use LaravelDomainOriented\Models\PersistenceModel;
 
-class UserPersistenceModel extends PersistenceModel
+class RolePersistenceModel extends PersistenceModel
 {
-    protected $table = 'users';
+    protected $table = 'roles';
 
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'role_id',
     ];
 
     // SCOPES
