@@ -1,3 +1,5 @@
-<?php
+<?php 
 
-return array();
+return array (
+   'User',
+);
