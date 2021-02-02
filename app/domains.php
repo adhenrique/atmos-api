@@ -4,4 +4,5 @@ return array (
    'User',
    'Role',
    'Glossary',
+   'StabilityClassification',
 );

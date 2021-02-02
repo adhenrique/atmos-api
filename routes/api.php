@@ -25,4 +25,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('glossaries', 'App\Http\Controllers\GlossaryController@store');
     Route::put('glossaries/{id}', 'App\Http\Controllers\GlossaryController@update');
     Route::delete('glossaries/{id}', 'App\Http\Controllers\GlossaryController@destroy');
+
+    Route::get('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@index');
+    Route::get('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@show');
+    Route::post('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@store');
+    Route::put('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@update');
+    Route::delete('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@destroy');
 });
