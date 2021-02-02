@@ -5,4 +5,5 @@ return array (
    'Role',
    'Glossary',
    'StabilityClassification',
+   'CurveFitConstant',
 );

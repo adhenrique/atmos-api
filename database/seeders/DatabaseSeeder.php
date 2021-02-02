@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         UserSeeder::class,
         GlossarySeeder::class,
         StabilityClassificationSeeder::class,
+        CurveFitConstantSeeder::class,
     ];
 
     public function run()

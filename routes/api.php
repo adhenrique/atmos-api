@@ -31,4 +31,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@store');
     Route::put('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@update');
     Route::delete('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@destroy');
+
+    Route::get('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@index');
+    Route::get('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@show');
+    Route::post('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@store');
+    Route::put('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@update');
+    Route::delete('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@destroy');
 });
