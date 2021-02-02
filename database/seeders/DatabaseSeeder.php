@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder
     private $seeders = [
         RoleSeeder::class,
         UserSeeder::class,
+        GlossarySeeder::class,
     ];
 
     public function run()

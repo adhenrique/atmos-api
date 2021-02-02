@@ -3,4 +3,5 @@
 return array (
    'User',
    'Role',
+   'Glossary',
 );
