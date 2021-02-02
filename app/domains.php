@@ -6,4 +6,5 @@ return array (
    'Glossary',
    'StabilityClassification',
    'CurveFitConstant',
+   'WindProfileExponent',
 );
