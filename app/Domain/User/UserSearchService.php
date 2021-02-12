@@ -27,4 +27,9 @@ class UserSearchService extends SearchService
 
         return parent::beforeAll($builder, $auth);
     }
+
+    public function findByEmail(string $email)
+    {
+        return $this->model->query()->where('email', $email)->first();
+    }
 }
