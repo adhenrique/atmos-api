@@ -3,13 +3,16 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
     private $seeders = [
         RoleSeeder::class,
         UserSeeder::class,
+        GlossarySeeder::class,
+        StabilityClassificationSeeder::class,
+        CurveFitConstantSeeder::class,
+        WindProfileExponentSeeder::class,
     ];
 
     public function run()
