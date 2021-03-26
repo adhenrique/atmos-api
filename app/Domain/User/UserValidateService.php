@@ -30,11 +30,10 @@ class UserValidateService extends ValidateService
         self::UPDATE => [
             'id' => 'required|integer',
             'name' => 'required|string',
-            'email' => 'required|string|unique:users,email',
-            'password' => 'required',
-            'access_period_start_date' => 'required|date_format:Y-m-d H:i:s',
-            'access_period_end_date' => 'required|date_format:Y-m-d H:i:s',
-            'role_id' => 'required|exists:roles,id',
+            'email' => 'required|string',
+            'access_period_start_date' => 'date_format:Y-m-d H:i:s',
+            'access_period_end_date' => 'date_format:Y-m-d H:i:s',
+            'role_id' => 'exists:roles,id',
         ],
         self::DESTROY => [
             'id' => 'required|integer',
