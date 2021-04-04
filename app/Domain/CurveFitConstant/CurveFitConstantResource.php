@@ -11,12 +11,9 @@ class CurveFitConstantResource extends Resource
         $data = [
             'id' => $this->id,
             'stability_class' => $this->stability_class,
-            'a' => $this->a,
-            'b' => $this->b,
-            'c' => $this->c,
-            'd' => $this->d,
-            'f' => $this->f,
-            'is_bigger_than_one_km' => $this->is_bigger_than_one_km,
+            'constant' => $this->constant,
+            'value' => $this->value,
+            'distance_operator_id' => $this->distance_operator_id,
         ];
 
         return $data;

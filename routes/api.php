@@ -46,4 +46,28 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('wind-profile-exponents', 'App\Http\Controllers\WindProfileExponentController@store');
     Route::put('wind-profile-exponents/{id}', 'App\Http\Controllers\WindProfileExponentController@update');
     Route::delete('wind-profile-exponents/{id}', 'App\Http\Controllers\WindProfileExponentController@destroy');
+
+    Route::get('distance-operators', 'App\Http\Controllers\DistanceOperatorController@index');
+    Route::get('distance-operators/{id}', 'App\Http\Controllers\DistanceOperatorController@show');
+    Route::post('distance-operators', 'App\Http\Controllers\DistanceOperatorController@store');
+    Route::put('distance-operators/{id}', 'App\Http\Controllers\DistanceOperatorController@update');
+    Route::delete('distance-operators/{id}', 'App\Http\Controllers\DistanceOperatorController@destroy');
+
+    Route::get('surfaces', 'App\Http\Controllers\SurfacesController@index');
+    Route::get('surfaces/{id}', 'App\Http\Controllers\SurfacesController@show');
+    Route::post('surfaces', 'App\Http\Controllers\SurfacesController@store');
+    Route::put('surfaces/{id}', 'App\Http\Controllers\SurfacesController@update');
+    Route::delete('surfaces/{id}', 'App\Http\Controllers\SurfacesController@destroy');
+
+    Route::get('times', 'App\Http\Controllers\TimeController@index');
+    Route::get('times/{id}', 'App\Http\Controllers\TimeController@show');
+    Route::post('times', 'App\Http\Controllers\TimeController@store');
+    Route::put('times/{id}', 'App\Http\Controllers\TimeController@update');
+    Route::delete('times/{id}', 'App\Http\Controllers\TimeController@destroy');
+
+    Route::get('conditions', 'App\Http\Controllers\ConditionController@index');
+    Route::get('conditions/{id}', 'App\Http\Controllers\ConditionController@show');
+    Route::post('conditions', 'App\Http\Controllers\ConditionController@store');
+    Route::put('conditions/{id}', 'App\Http\Controllers\ConditionController@update');
+    Route::delete('conditions/{id}', 'App\Http\Controllers\ConditionController@destroy');
 });

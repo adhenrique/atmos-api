@@ -11,11 +11,9 @@ class StabilityClassificationResource extends Resource
         $data = [
             'id' => $this->id,
             'ums' => $this->ums,
-            'strong' => $this->strong,
-            'moderate' => $this->moderate,
-            'slight' => $this->slight,
-            'cloudy' => $this->cloudy,
-            'clear' => $this->clear,
+            'class' => $this->class,
+            'time_id' => $this->time_id,
+            'condition_id' => $this->condition_id,
         ];
 
         return $data;
