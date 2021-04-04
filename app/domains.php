@@ -8,4 +8,5 @@ return array (
    'CurveFitConstant',
    'WindProfileExponent',
    'DistanceOperator',
+   'Surfaces',
 );

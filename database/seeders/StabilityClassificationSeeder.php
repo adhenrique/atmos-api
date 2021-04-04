@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Domain\CurveFitConstant\CurveFitConstantPersistenceService;
-use App\Domain\StabilityClassification\StabilityClassificationPersistenceModel;
 use App\Domain\StabilityClassification\StabilityClassificationPersistenceService;
 
 class StabilityClassificationSeeder extends TableSeeder

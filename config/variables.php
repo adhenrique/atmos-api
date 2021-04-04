@@ -11,4 +11,8 @@ return [
         '>' => 3,
         '=' => 4,
     ],
+    'surfaces' => [
+        'rough' => 1,
+        'smooth' => 2,
+    ],
 ];
