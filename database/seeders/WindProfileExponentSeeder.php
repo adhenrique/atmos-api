@@ -16,14 +16,29 @@ class WindProfileExponentSeeder extends TableSeeder
                 'smooth' => 0.07,
             ],
             [
+                'stability_class' => 'A-B',
+                'rough' => 0.15,
+                'smooth' => 0.07,
+            ],
+            [
                 'stability_class' => 'B',
                 'rough' => 0.15,
                 'smooth' => 0.07,
             ],
             [
+                'stability_class' => 'B-C',
+                'rough' => 0.175,
+                'smooth' => 0.085,
+            ],
+            [
                 'stability_class' => 'C',
                 'rough' => 0.2,
                 'smooth' => 0.1,
+            ],
+            [
+                'stability_class' => 'C-D',
+                'rough' => 0.225,
+                'smooth' => 0.125,
             ],
             [
                 'stability_class' => 'D',

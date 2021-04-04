@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder
         RoleSeeder::class,
         UserSeeder::class,
         GlossarySeeder::class,
+        DistanceOperatorSeeder::class,
         StabilityClassificationSeeder::class,
         CurveFitConstantSeeder::class,
         WindProfileExponentSeeder::class,

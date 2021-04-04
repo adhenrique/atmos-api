@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWindProfileExponentsTable extends Migration
+class CreateDistanceOperatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateWindProfileExponentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wind_profile_exponents', function (Blueprint $table) {
+        Schema::create('distance_operators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('stability_class');
-            $table->decimal('rough', 4, 3);
-            $table->decimal('smooth', 4, 3);
+            $table->string('name');
+            $table->string('operator')->nullable();
 
             //default columns
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateWindProfileExponentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wind_profile_exponents');
+        Schema::dropIfExists('distance_operators');
     }
 }

@@ -7,4 +7,5 @@ return array (
    'StabilityClassification',
    'CurveFitConstant',
    'WindProfileExponent',
+   'DistanceOperator',
 );
