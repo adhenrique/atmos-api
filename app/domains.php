@@ -9,4 +9,6 @@ return array (
    'WindProfileExponent',
    'DistanceOperator',
    'Surfaces',
+   'Time',
+   'Condition',
 );

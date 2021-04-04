@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStabilityClassificationsTable extends Migration
+class CreateTimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateStabilityClassificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stability_classifications', function (Blueprint $table) {
+        Schema::create('times', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ums');
-            $table->string('class');
-            $table->integer('time_id');
-            $table->integer('condition_id');
+            $table->string('name');
 
             //default columns
             $table->timestamps();
@@ -34,6 +31,6 @@ class CreateStabilityClassificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stability_classifications');
+        Schema::dropIfExists('times');
     }
 }

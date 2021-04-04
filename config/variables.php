@@ -15,4 +15,15 @@ return [
         'rough' => 1,
         'smooth' => 2,
     ],
+    'times' => [
+        'day' => 1,
+        'night' => 2,
+    ],
+    'conditions' => [
+        'strong' => 1,
+        'moderate' => 2,
+        'slight' => 3,
+        'cloudy' => 4,
+        'clear' => 5,
+    ],
 ];

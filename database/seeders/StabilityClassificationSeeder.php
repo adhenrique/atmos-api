@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Domain\StabilityClassification\StabilityClassificationPersistenceService;
+use App\Facades\VariablesFacade;
 
 class StabilityClassificationSeeder extends TableSeeder
 {
@@ -11,44 +12,154 @@ class StabilityClassificationSeeder extends TableSeeder
         $this->service = $stabilityClassificationPersistenceService;
         $this->data = [
             [
-                'ums' => '<2',
-                'strong' => 'A',
-                'moderate' => 'A-B',
-                'slight' => 'B',
-                'cloudy' => 'E',
-                'clear' => 'F',
+                'ums' => '<=2',
+                'class' => 'A',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.strong'),
+            ],
+            [
+                'ums' => '<=2',
+                'class' => 'A-B',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.moderate'),
+            ],
+            [
+                'ums' => '<=2',
+                'class' => 'B',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.slight'),
+            ],
+            [
+                'ums' => '<=2',
+                'class' => 'E',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.cloudy'),
+            ],
+            [
+                'ums' => '<=2',
+                'class' => 'F',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.clear'),
             ],
             [
                 'ums' => '2-3',
-                'strong' => 'A-B',
-                'moderate' => 'B',
-                'slight' => 'C',
-                'cloudy' => 'E',
-                'clear' => 'F',
+                'class' => 'A-B',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.strong'),
+            ],
+            [
+                'ums' => '2-3',
+                'class' => 'B',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.moderate'),
+            ],
+            [
+                'ums' => '2-3',
+                'class' => 'C',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.slight'),
+            ],
+            [
+                'ums' => '2-3',
+                'class' => 'E',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.cloudy'),
+            ],
+            [
+                'ums' => '2-3',
+                'class' => 'F',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.clear'),
             ],
             [
                 'ums' => '3-5',
-                'strong' => 'B',
-                'moderate' => 'B-C',
-                'slight' => 'C',
-                'cloudy' => 'D',
-                'clear' => 'E',
+                'class' => 'B',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.strong'),
+            ],
+            [
+                'ums' => '3-5',
+                'class' => 'B-C',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.moderate'),
+            ],
+            [
+                'ums' => '3-5',
+                'class' => 'C',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.slight'),
+            ],
+            [
+                'ums' => '3-5',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.cloudy'),
+            ],
+            [
+                'ums' => '3-5',
+                'class' => 'E',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.clear'),
             ],
             [
                 'ums' => '5-6',
-                'strong' => 'C',
-                'moderate' => 'C-D',
-                'slight' => 'D',
-                'cloudy' => 'D',
-                'clear' => 'D',
+                'class' => 'C',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.strong'),
+            ],
+            [
+                'ums' => '5-6',
+                'class' => 'C-D',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.moderate'),
+            ],
+            [
+                'ums' => '5-6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.slight'),
+            ],
+            [
+                'ums' => '5-6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.cloudy'),
+            ],
+            [
+                'ums' => '5-6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.clear'),
             ],
             [
                 'ums' => '>6',
-                'strong' => 'C',
-                'moderate' => 'D',
-                'slight' => 'D',
-                'cloudy' => 'D',
-                'clear' => 'D',
+                'class' => 'C',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.strong'),
+            ],
+            [
+                'ums' => '>6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.moderate'),
+            ],
+            [
+                'ums' => '>6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.day'),
+                'condition_id' => VariablesFacade::config('conditions.slight'),
+            ],
+            [
+                'ums' => '>6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.cloudy'),
+            ],
+            [
+                'ums' => '>6',
+                'class' => 'D',
+                'time_id' => VariablesFacade::config('times.night'),
+                'condition_id' => VariablesFacade::config('conditions.clear'),
             ],
         ];
     }
