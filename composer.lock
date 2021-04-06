@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2867eef949815599a98ef8b8be63a061",
+    "content-hash": "05cb0097f40d0619bbab5767c1d75ff7",
     "packages": [
         {
             "name": "adhenrique/laravel-domain-oriented",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adhenrique/laravel-domain-oriented.git",
-                "reference": "d043328cd6c63ea894864277dc77aa5b36201117"
+                "reference": "767ed0e1b1b9ddbace174a89b19d874028205841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adhenrique/laravel-domain-oriented/zipball/d043328cd6c63ea894864277dc77aa5b36201117",
-                "reference": "d043328cd6c63ea894864277dc77aa5b36201117",
+                "url": "https://api.github.com/repos/adhenrique/laravel-domain-oriented/zipball/767ed0e1b1b9ddbace174a89b19d874028205841",
+                "reference": "767ed0e1b1b9ddbace174a89b19d874028205841",
                 "shasum": ""
             },
             "require-dev": {
@@ -62,9 +62,9 @@
             ],
             "support": {
                 "issues": "https://github.com/adhenrique/laravel-domain-oriented/issues",
-                "source": "https://github.com/adhenrique/laravel-domain-oriented/tree/v2.0.1"
+                "source": "https://github.com/adhenrique/laravel-domain-oriented/tree/v2.1.0"
             },
-            "time": "2021-01-20T15:38:42+00:00"
+            "time": "2021-03-03T20:15:50+00:00"
         },
         {
             "name": "asm89/stack-cors",

@@ -33,4 +33,9 @@ class CurveFitConstantPolicy
     {
         return true;
     }
+
+    public function listStabilityClasses(): bool
+    {
+        return true;
+    }
 }

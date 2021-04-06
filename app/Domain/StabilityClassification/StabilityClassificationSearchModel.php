@@ -2,6 +2,7 @@
 
 namespace App\Domain\StabilityClassification;
 
+use App\Domain\Condition\ConditionSearchModel;
 use LaravelDomainOriented\Models\SearchModel;
 
 class StabilityClassificationSearchModel extends SearchModel
@@ -12,5 +13,10 @@ class StabilityClassificationSearchModel extends SearchModel
     public function scopeDefault($query)
     {
         return $query->whereNull('inactivated_by');
+    }
+
+    public function condition()
+    {
+        return $this->belongsTo(ConditionSearchModel::class);
     }
 }

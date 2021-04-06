@@ -33,4 +33,9 @@ class StabilityClassificationPolicy
     {
         return true;
     }
+
+    public function listConditionsByTime(): bool
+    {
+        return true;
+    }
 }

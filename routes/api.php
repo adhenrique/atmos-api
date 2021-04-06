@@ -30,12 +30,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('glossaries/{id}', 'App\Http\Controllers\GlossaryController@destroy');
 
     Route::get('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@index');
+    Route::get('stability-classifications/conditions-by-time/{timeId}', 'App\Http\Controllers\StabilityClassificationController@listConditionsByTime');
     Route::get('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@show');
     Route::post('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@store');
     Route::put('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@update');
     Route::delete('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@destroy');
 
     Route::get('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@index');
+    Route::get('curve-fit-constants/stability-classes', 'App\Http\Controllers\CurveFitConstantController@listStabilityClasses');
     Route::get('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@show');
     Route::post('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@store');
     Route::put('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@update');
