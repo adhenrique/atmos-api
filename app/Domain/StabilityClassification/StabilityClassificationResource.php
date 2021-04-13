@@ -14,6 +14,8 @@ class StabilityClassificationResource extends Resource
             'class' => $this->class,
             'time_id' => $this->time_id,
             'condition_id' => $this->condition_id,
+            'condition' => $this->condition,
+            'conditionName' => $this->condition->name,
         ];
 
         return $data;
