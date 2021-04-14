@@ -13,6 +13,8 @@ class WindProfileExponentResource extends Resource
             'stability_class' => $this->stability_class,
             'value' => $this->value,
             'surface_id' => $this->surface_id,
+            'surface' => $this->surface,
+            'surfaceName' => $this->surface->name,
         ];
 
         return $data;
