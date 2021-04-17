@@ -11,4 +11,5 @@ return array (
    'Surfaces',
    'Time',
    'Condition',
+   'Calc',
 );

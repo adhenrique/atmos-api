@@ -72,4 +72,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('conditions', 'App\Http\Controllers\ConditionController@store');
     Route::put('conditions/{id}', 'App\Http\Controllers\ConditionController@update');
     Route::delete('conditions/{id}', 'App\Http\Controllers\ConditionController@destroy');
+
+    Route::get('calcs', 'App\Http\Controllers\CalcController@index');
+    Route::get('calcs/{id}', 'App\Http\Controllers\CalcController@show');
+    Route::post('calcs', 'App\Http\Controllers\CalcController@store');
+    Route::put('calcs/{id}', 'App\Http\Controllers\CalcController@update');
+    Route::delete('calcs/{id}', 'App\Http\Controllers\CalcController@destroy');
 });
