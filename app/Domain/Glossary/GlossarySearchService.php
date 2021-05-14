@@ -10,6 +10,7 @@ class GlossarySearchService extends SearchService
 {
     protected SearchModel $model;
     protected FilterService $filterService;
+    protected int $paginateOffset = 1;
 
     public function __construct(GlossarySearchModel $model, GlossaryFilterService $filterService)
     {
