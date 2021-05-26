@@ -8,4 +8,4 @@ RUN composer clearcache && \
     composer install && \
     php artisan key:generate
 
-EXPOSE 80
+EXPOSE 80 443
