@@ -1,0 +1,46 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "277661494361.dkr.ecr.us-east-1.amazonaws.com/atmos-client",
+      "hostname": "client",
+      "essential": false,
+      "memory": 256,
+      "links": ["api"],
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
+    },
+    {
+      "name": "api",
+      "image": "277661494361.dkr.ecr.us-east-1.amazonaws.com/atmos-api",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 80
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "image": "277661494361.dkr.ecr.us-east-1.amazonaws.com/atmos-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "api"],
+      "memory": 64
+    }
+  ]
+}
