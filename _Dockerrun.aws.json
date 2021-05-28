@@ -21,6 +21,12 @@
       "hostname": "api",
       "essential": false,
       "memory": 128,
+      "environment": [
+        {
+          "name": "WEB_DOCUMENT_ROOT",
+          "value": "/app/public"
+        }
+      ],
       "portMappings": [
         {
           "hostPort": 8080,

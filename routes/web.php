@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::post('/login', [AuthController::class, 'logIn']);
 Route::post('/logout', [AuthController::class, 'logOut']);
+Route::get( 'test', function() {
+    dd('yay');
+});
