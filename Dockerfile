@@ -4,6 +4,8 @@ WORKDIR /app
 COPY . /app
 COPY .env.example .env
 
+RUN printenv >> .env
+
 RUN composer clearcache && \
     composer install && \
     php artisan key:generate
