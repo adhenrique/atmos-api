@@ -10,11 +10,11 @@ ARG RDS_PORT
 ARG RDS_HOSTNAME
 ARG RDS_USERNAME
 
-RUN echo ${RDS_PASSWORD} >> .env && \
-    echo ${RDS_DB_NAME} >> .env && \
-    echo ${RDS_PORT} >> .env && \
-    echo ${RDS_HOSTNAME} >> .env && \
-    echo ${RDS_USERNAME} >> .env
+RUN echo "RDS_PASSWORD=${RDS_PASSWORD}" >> .env && \
+    echo "RDS_DB_NAME=${RDS_DB_NAME}" >> .env && \
+    echo "RDS_PORT=${RDS_PORT}" >> .env && \
+    echo "RDS_HOSTNAME=${RDS_HOSTNAME}" >> .env && \
+    echo "RDS_USERNAME=${RDS_USERNAME}" >> .env
 
 RUN composer clearcache && \
     composer install && \
