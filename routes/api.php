@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('glossaries/{id}', 'App\Http\Controllers\GlossaryController@destroy');
 
     Route::get('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@index');
+    Route::get('stability-classifications/grouped', 'App\Http\Controllers\StabilityClassificationController@listGroupedByTimeAndCondition');
     Route::get('stability-classifications/conditions-by-time/{timeId}', 'App\Http\Controllers\StabilityClassificationController@listConditionsByTime');
     Route::get('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@show');
     Route::post('stability-classifications', 'App\Http\Controllers\StabilityClassificationController@store');

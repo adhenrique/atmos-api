@@ -40,4 +40,56 @@ class StabilityClassificationSearchService extends SearchService
 
         return $collection;
     }
+
+    public function listGroupedByTimeAndCondition()
+    {
+        $builder = $this->model->query();
+        $data = $builder->with(['time', 'condition'])->get();
+        $template = [
+            'spanHead' => [],
+            'head' => [
+                [
+                    'id' => 'ums',
+                    'label' => 'u (m/s)',
+                ],
+            ],
+            'items' => [],
+        ];
+
+        foreach ($data as $item) {
+            $timeKey = 'time_' . $item->time_id;
+            $conditionKey = 'condition_' . $item->condition_id;
+            $umsKey = $item->ums;
+
+            if (!array_key_exists($timeKey, $template['spanHead'])) {
+                $template['spanHead'][$timeKey] = [
+                    'id' => $timeKey,
+                    'label' => $item->time->name,
+                ];
+            }
+
+            if (!array_key_exists($conditionKey, $template['head'])) {
+                $template['head'][$conditionKey] = [
+                    'id' => $conditionKey,
+                    'label' => $item->condition->name,
+                ];
+            }
+
+            if (!array_key_exists($umsKey, $template['items'])) {
+                $template['items'][$umsKey] = [
+                    'id' => $umsKey,
+                    'ums' => $umsKey,
+                ];
+            }
+
+            $template['head'][$conditionKey][$timeKey] = $item->time->name;
+            $template['items'][$umsKey][$conditionKey] = $item->class;
+        }
+
+        return [
+            'spanHead' => array_values($template['spanHead']),
+            'head' => array_values($template['head']),
+            'items' => array_values($template['items']),
+        ];
+    }
 }

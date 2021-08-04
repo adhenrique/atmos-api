@@ -31,4 +31,11 @@ class StabilityClassificationController extends Controller
         $data = $this->searchService->listConditionsByTime($request, $timeId);
         return SelectResource::collection($data);
     }
+
+    public function listGroupedByTimeAndCondition()
+    {
+        $data = $this->searchService->listGroupedByTimeAndCondition();
+
+        return $this->response($data);
+    }
 }
