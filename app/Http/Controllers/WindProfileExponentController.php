@@ -21,4 +21,11 @@ class WindProfileExponentController extends Controller
         $this->searchService = $searchService;
         $this->validateService = $validateService;
     }
+
+    public function listGrouped()
+    {
+        $data = $this->searchService->listGrouped();
+
+        return $this->response($data);
+    }
 }

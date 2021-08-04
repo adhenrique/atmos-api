@@ -46,6 +46,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@destroy');
 
     Route::get('wind-profile-exponents', 'App\Http\Controllers\WindProfileExponentController@index');
+    Route::get('wind-profile-exponents/grouped', 'App\Http\Controllers\WindProfileExponentController@listGrouped');
     Route::get('wind-profile-exponents/{id}', 'App\Http\Controllers\WindProfileExponentController@show');
     Route::post('wind-profile-exponents', 'App\Http\Controllers\WindProfileExponentController@store');
     Route::put('wind-profile-exponents/{id}', 'App\Http\Controllers\WindProfileExponentController@update');
