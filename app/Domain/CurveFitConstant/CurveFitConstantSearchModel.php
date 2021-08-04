@@ -2,6 +2,7 @@
 
 namespace App\Domain\CurveFitConstant;
 
+use App\Domain\DistanceOperator\DistanceOperatorSearchModel;
 use LaravelDomainOriented\Models\SearchModel;
 
 class CurveFitConstantSearchModel extends SearchModel
@@ -20,5 +21,10 @@ class CurveFitConstantSearchModel extends SearchModel
     public function scopeDefault($query)
     {
         return $query->whereNull('inactivated_by');
+    }
+
+    public function distanceOperator()
+    {
+        return $this->belongsTo(DistanceOperatorSearchModel::class);
     }
 }

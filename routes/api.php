@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('stability-classifications/{id}', 'App\Http\Controllers\StabilityClassificationController@destroy');
 
     Route::get('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@index');
+    Route::get('curve-fit-constants/grouped', 'App\Http\Controllers\CurveFitConstantController@listGrouped');
     Route::get('curve-fit-constants/stability-classes', 'App\Http\Controllers\CurveFitConstantController@listStabilityClasses');
     Route::get('curve-fit-constants/{id}', 'App\Http\Controllers\CurveFitConstantController@show');
     Route::post('curve-fit-constants', 'App\Http\Controllers\CurveFitConstantController@store');

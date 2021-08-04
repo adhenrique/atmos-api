@@ -31,4 +31,11 @@ class CurveFitConstantController extends Controller
         $data = $this->searchService->listStabilityClasses($request);
         return SelectResource::collection($data);
     }
+
+    public function listGrouped()
+    {
+        $data = $this->searchService->listGrouped();
+
+        return $this->response($data);
+    }
 }
