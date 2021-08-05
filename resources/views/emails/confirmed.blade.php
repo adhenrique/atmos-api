@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td>
-                <p>If you can't click on the button above, copy this link and paste into your browser: <br />
+                <p>If you’re having trouble clicking the button, copy and paste the URL below into your web browser: <br />
                     <a href="{{ env('WEB_URL') }}">{{ env('WEB_URL') }}</a>
                 </p>
             </td>

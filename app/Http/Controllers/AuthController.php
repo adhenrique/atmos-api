@@ -2,25 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\User\UserPersistenceService;
 use App\Domain\User\UserSearchService;
 use App\Facades\VariablesFacade;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
     private $userSearchService;
+    private $userPersistenceService;
 
-    public function __construct(UserSearchService $userSearchService)
+    public function __construct(UserSearchService $userSearchService, UserPersistenceService $userPersistenceService)
     {
         $this->userSearchService = $userSearchService;
+        $this->userPersistenceService = $userPersistenceService;
     }
 
     public function logIn(Request $request)
     {
         $request->validate(
             [
-                'email'    => 'required|string',
+                'email' => 'required|string',
                 'password' => 'required|string',
             ]
         );
@@ -69,5 +74,44 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return response()->json([], 204);
+    }
+
+    // todo - use DB::transaction ?
+    public function forgotPassword(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? response()->json(['message' => $status], 200)
+            : response()->json(['error' => 'This user does not exist. Are you sure the email is correct?'], 404);
+    }
+
+    // todo - use DB::transaction ?
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) use ($request) {
+                $this->userPersistenceService->update([
+                    'password' => $password,
+                ], $user->id);
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+            ? response()->json(['message' => $status], 200)
+            : response()->json(['error' => 'Unknown user'], 404);
     }
 }

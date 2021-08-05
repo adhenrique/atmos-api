@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::post('/login', [AuthController::class, 'logIn']);
 Route::post('/logout', [AuthController::class, 'logOut']);
+Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.reset');
 Route::post('/register', 'App\Http\Controllers\UserController@register');
 
 Route::prefix('mail')->group(function () {
