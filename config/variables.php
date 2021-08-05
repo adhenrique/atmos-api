@@ -31,4 +31,7 @@ return [
         'active' => 'Active',
         'inactive' => 'Inactive',
     ],
+    'admin' => [
+        'email' => 'atmos@atmos.com'
+    ]
 ];

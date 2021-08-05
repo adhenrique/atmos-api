@@ -3,6 +3,7 @@
 namespace App\Domain\User;
 
 use App\Facades\VariablesFacade;
+use App\Mail\NewUserMail;
 use App\Mail\PendingMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -44,8 +45,8 @@ class UserPersistenceService extends PersistenceService
         DB::beginTransaction();
         try {
             $storedUser = parent::store($data);
-            // todo - send info email to admin
             Mail::to($data['email'])->send(new PendingMail($data['name']));
+            Mail::to(VariablesFacade::config('admin.email'))->send(new NewUserMail());
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
