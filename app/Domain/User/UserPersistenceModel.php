@@ -15,6 +15,7 @@ class UserPersistenceModel extends PersistenceModel
         'name',
         'email',
         'password',
+        'access_period_end_date',
         'role_id',
     ];
 

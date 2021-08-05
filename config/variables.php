@@ -26,4 +26,9 @@ return [
         'cloudy' => 4,
         'clear' => 5,
     ],
+    'status' => [
+        'pending' => 'Pending',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+    ],
 ];

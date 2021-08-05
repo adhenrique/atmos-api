@@ -6,5 +6,5 @@ use LaravelDomainOriented\Services\FilterService;
 
 class UserFilterService extends FilterService
 {
-    protected array $fields = ['id', 'name', 'email'];
+    protected array $fields = ['id', 'name', 'email', 'status'];
 }

@@ -4,8 +4,13 @@ namespace App\Helpers;
 
 class Variables
 {
-    public function config($index)
+    /**
+     * @param string $index
+     * @param string|null $default
+     * @return string|array|mixed
+     */
+    public function config(string $index, string $default = null)
     {
-        return config("variables.{$index}");
+        return config("variables.{$index}", $default);
     }
 }

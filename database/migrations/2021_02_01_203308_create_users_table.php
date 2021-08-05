@@ -1,5 +1,6 @@
 <?php
 
+use App\Facades\VariablesFacade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -19,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->dateTime('access_period_start_date');
             $table->dateTime('access_period_end_date');
             $table->integer('role_id');
+            $table->enum('status', array_keys((array) VariablesFacade::config('status')));
             $table->rememberToken();
 
             //default columns

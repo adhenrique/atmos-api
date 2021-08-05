@@ -23,6 +23,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('users/{id}', 'App\Http\Controllers\UserController@update');
     Route::delete('users/{id}', 'App\Http\Controllers\UserController@destroy');
 
+    Route::get('roles', 'App\Http\Controllers\RoleController@index');
+    Route::get('roles/{id}', 'App\Http\Controllers\RoleController@show');
+    Route::post('roles', 'App\Http\Controllers\RoleController@store');
+    Route::put('roles/{id}', 'App\Http\Controllers\RoleController@update');
+    Route::delete('roles/{id}', 'App\Http\Controllers\RoleController@destroy');
+
     Route::get('glossaries', 'App\Http\Controllers\GlossaryController@index');
     Route::get('glossaries/{id}', 'App\Http\Controllers\GlossaryController@show');
     Route::post('glossaries', 'App\Http\Controllers\GlossaryController@store');

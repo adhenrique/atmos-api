@@ -2,6 +2,7 @@
 
 namespace App\Domain\User;
 
+use App\Domain\Role\RoleSearchModel;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -24,5 +25,10 @@ class UserSearchModel extends SearchModel implements
     public function scopeDefault($query)
     {
         return $query->whereNull('inactivated_by');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(RoleSearchModel::class);
     }
 }
