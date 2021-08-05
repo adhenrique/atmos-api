@@ -51,8 +51,12 @@ class AuthController extends Controller
 
         if (Auth::guard()->attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
-
-            return response()->json([], 204);
+            $data = [
+                'name' => $user->name,
+                'email' => $user->email,
+                'role_id' => $user->role_id,
+            ];
+            return response()->json($data);
         }
 
         return response()->json(['error' => 'Invalid credentials'], 401);
