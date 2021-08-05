@@ -3,6 +3,9 @@
 namespace App\Domain\User;
 
 use App\Facades\VariablesFacade;
+use App\Mail\PendingMail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use LaravelDomainOriented\Services\PersistenceService;
 use LaravelDomainOriented\Models\PersistenceModel;
 
@@ -37,7 +40,18 @@ class UserPersistenceService extends PersistenceService
             'role_id' => VariablesFacade::config('roles.student'),
         ]);
 
-        // todo - send "welcome/pending" email
-        return parent::store($data);
+        $storedUser = null;
+        DB::beginTransaction();
+        try {
+            $storedUser = parent::store($data);
+            // todo - send info email to admin
+            Mail::to($data['email'])->send(new PendingMail($data['name']));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        DB::commit();
+
+        return $storedUser;
     }
 }

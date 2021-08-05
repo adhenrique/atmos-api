@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,9 @@ Route::get('/', function () {
 Route::post('/login', [AuthController::class, 'logIn']);
 Route::post('/logout', [AuthController::class, 'logOut']);
 Route::post('/register', 'App\Http\Controllers\UserController@register');
+
+Route::prefix('mail')->group(function () {
+    Route::get('test', function () {
+        Mail::to(['eu@adhenrique.com.br'])->send(new TestMail());
+    });
+});
