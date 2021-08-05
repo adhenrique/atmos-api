@@ -20,8 +20,10 @@ class UserSearchModel extends SearchModel implements
     use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail;
 
     protected $table = 'users';
+    protected $dates = ['access_period_end_date'];
 
     // SCOPES
+    // todo - remove this from Lib
     public function scopeDefault($query)
     {
         return $query->whereNull('inactivated_by');
