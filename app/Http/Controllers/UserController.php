@@ -47,4 +47,18 @@ class UserController extends Controller
         $id = $this->persistenceService->register($validatedData);
         return $this->response(['id' => $id]);
     }
+
+    public function active(int $userId)
+    {
+        $validatedData = $this->validateService->handle(['id' => $userId], UserValidateService::DESTROY);
+        $id = $this->persistenceService->active($validatedData);
+        return $this->response(['id' => $id]);
+    }
+
+    public function inactive(int $userId)
+    {
+        $validatedData = $this->validateService->handle(['id' => $userId], UserValidateService::DESTROY);
+        $id = $this->persistenceService->inactive($validatedData);
+        return $this->response(['id' => $id]);
+    }
 }

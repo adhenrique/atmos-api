@@ -3,6 +3,7 @@
 namespace App\Domain\User;
 
 use App\Facades\VariablesFacade;
+use App\Mail\ConfirmedMail;
 use App\Mail\NewUserMail;
 use App\Mail\PendingMail;
 use App\Mail\RegisteredMail;
@@ -65,5 +66,46 @@ class UserPersistenceService extends PersistenceService
         DB::commit();
 
         return $storedUser;
+    }
+
+    public function active(array $data)
+    {
+        $data = array_merge($data, [
+            'status' => VariablesFacade::config('status.active'),
+        ]);
+
+        $updatedUser = null;
+        DB::beginTransaction();
+        try {
+            $updatedUser = parent::update($data, $data['id']);
+            $user = $this->model->findOrFail($data['id']);
+
+            Mail::to($user->email)->send(new ConfirmedMail($user->name));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        DB::commit();
+
+        return $updatedUser;
+    }
+
+    public function inactive(array $data)
+    {
+        $data = array_merge($data, [
+            'status' => VariablesFacade::config('status.inactive'),
+        ]);
+
+        $updatedUser = null;
+        DB::beginTransaction();
+        try {
+            $updatedUser = parent::update($data, $data['id']);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        DB::commit();
+
+        return $updatedUser;
     }
 }
