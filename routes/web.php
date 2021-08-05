@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::post('/login', [AuthController::class, 'logIn']);
 Route::post('/logout', [AuthController::class, 'logOut']);
+Route::post('/register', 'App\Http\Controllers\UserController@register');

@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use LaravelDomainOriented\Controller\Controller;
+use LaravelDomainOriented\Services\ValidateService;
 
 class UserController extends Controller
 {
@@ -38,5 +39,12 @@ class UserController extends Controller
         $id = Auth::id();
 
         return $this->update($request, $id);
+    }
+
+    public function register(Request $request): JsonResponse
+    {
+        $validatedData = $this->validateService->handle($request->all(), 'register');
+        $id = $this->persistenceService->register($validatedData);
+        return $this->response(['id' => $id]);
     }
 }

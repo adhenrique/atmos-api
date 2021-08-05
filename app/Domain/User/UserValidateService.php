@@ -35,5 +35,10 @@ class UserValidateService extends ValidateService
         self::DESTROY => [
             'id' => 'required|integer',
         ],
+        'register' => [
+            'name' => 'required|string',
+            'email' => 'required|string|unique:users,email',
+            'password' => 'required',
+        ],
     ];
 }
