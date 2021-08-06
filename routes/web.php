@@ -28,6 +28,6 @@ Route::post('/register', 'App\Http\Controllers\UserController@register');
 
 Route::prefix('mail')->group(function () {
     Route::get('test', function () {
-        Mail::to(['eu@adhenrique.com.br'])->send(new TestMail());
+        Mail::to(sendTo(['eu@adhenrique.com.br']))->send(new TestMail());
     });
 });

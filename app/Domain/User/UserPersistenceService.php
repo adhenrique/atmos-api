@@ -35,7 +35,7 @@ class UserPersistenceService extends PersistenceService
         DB::beginTransaction();
         try {
             $storedUser = parent::store($data);
-            Mail::to($data['email'])->send(new RegisteredMail($data['name']));
+            Mail::to(sendTo($data['email']))->send(new RegisteredMail($data['name']));
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
@@ -57,8 +57,8 @@ class UserPersistenceService extends PersistenceService
         DB::beginTransaction();
         try {
             $storedUser = parent::store($data);
-            Mail::to($data['email'])->send(new PendingMail($data['name']));
-            Mail::to(VariablesFacade::config('admin.email'))->send(new NewUserMail());
+            Mail::to(sendTo($data['email']))->send(new PendingMail($data['name']));
+            Mail::to(sendTo(VariablesFacade::config('admin.email')))->send(new NewUserMail());
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
@@ -80,7 +80,7 @@ class UserPersistenceService extends PersistenceService
             $updatedUser = parent::update($data, $data['id']);
             $user = $this->model->findOrFail($data['id']);
 
-            Mail::to($user->email)->send(new ConfirmedMail($user->name));
+            Mail::to(sendTo($user->email))->send(new ConfirmedMail($user->name));
         } catch (\Exception $e) {
             DB::rollBack();
             throw $e;
