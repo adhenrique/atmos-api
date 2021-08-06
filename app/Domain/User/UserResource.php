@@ -19,7 +19,10 @@ class UserResource extends Resource
                 'label' => $this->role->name,
                 'value' => $this->role_id,
             ],
-            'status' => VariablesFacade::config("status.{$this->status}"),
+            'status' => [
+                'label' => VariablesFacade::config("status.{$this->status}"),
+                'value' => $this->status,
+            ],
         ];
 
         return $data;
