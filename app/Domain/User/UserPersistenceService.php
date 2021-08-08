@@ -24,7 +24,7 @@ class UserPersistenceService extends PersistenceService
     public function store(array $data)
     {
         $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
-        $password = substr($random, 0, 10);
+        $password = $data['password'] ?? substr($random, 0, 10);
 
         $data = array_merge($data, [
             'password' => $password,
