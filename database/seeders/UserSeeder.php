@@ -15,7 +15,14 @@ class UserSeeder extends TableSeeder
             [
                 'name' => 'Atmos',
                 'email' => 'atmos@atmos.com.br',
-                'password' => Hash::make(12345678),
+                'password' => 12345678,
+                'access_period_end_date' => now()->add('1 year'),
+                'role_id' => 1,
+            ],
+            [
+                'name' => 'Codesandbox',
+                'email' => 'i2careproject@gmail.com',
+                'password' => 12345678,
                 'access_period_end_date' => now()->add('1 year'),
                 'role_id' => 1,
             ],
