@@ -38,19 +38,19 @@ class AuthController extends Controller
 
         if ($user->status === 'pending') {
             return response()->json([
-                'error' => 'Your account is pending activation. (You will be notified by email)'
+                'error' => 'pending'
             ], 403);
         }
 
         if ($user->status === 'inactive') {
             return response()->json([
-                'error' => 'Your account is inactive. Contact an Administrator'
+                'error' => 'inactive'
             ], 403);
         }
 
         if ($user->access_period_end_date->lte(now())) {
             return response()->json([
-                'error' => 'Your period access expired. Contact an Administrator'
+                'error' => 'period'
             ], 403);
         }
 
