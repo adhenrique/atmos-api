@@ -24,6 +24,7 @@ return [
         'forgot-password',
         'reset-password',
         'check-email',
+        'contact',
     ],
 
     'allowed_methods' => ['*'],

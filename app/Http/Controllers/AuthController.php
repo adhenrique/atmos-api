@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Domain\User\UserPersistenceService;
 use App\Domain\User\UserSearchService;
 use App\Facades\VariablesFacade;
+use App\Mail\ContactMail;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
@@ -113,5 +115,22 @@ class AuthController extends Controller
         return $status === Password::PASSWORD_RESET
             ? response()->json(['message' => $status], 200)
             : response()->json(['error' => 'Unknown user'], 404);
+    }
+
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|exists:users,email',
+            'subject' => 'required|array',
+            'message' => 'required',
+        ]);
+
+
+        list($name, $email, $subject, $message) = array_values($request->only(['name', 'email', 'subject', 'message']));
+
+        Mail::to(sendTo(env('ADMIN_MAIL')))->send(new ContactMail($name, $email, $subject['label'], $message));
+
+        return response([], 200);
     }
 }

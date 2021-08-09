@@ -25,6 +25,7 @@ Route::post('/logout', [AuthController::class, 'logOut']);
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.reset');
 Route::post('/register', 'App\Http\Controllers\UserController@register');
+Route::post('/contact', [AuthController::class, 'contact'])->middleware('throttle:10,1');
 
 Route::prefix('mail')->group(function () {
     Route::get('test', function () {
