@@ -30,6 +30,11 @@ class UserPolicy
         return $auth->role_id === VariablesFacade::config('roles.admin');
     }
 
+    public function updateMe(AuthUser $auth): bool
+    {
+        return true;
+    }
+
     public function destroy(AuthUser $auth): bool
     {
         return $auth->role_id === VariablesFacade::config('roles.admin');

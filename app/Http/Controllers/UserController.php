@@ -37,7 +37,7 @@ class UserController extends Controller
     public function updateMe(Request $request)
     {
         $id = Auth::id();
-        $this->authorize('update', [$this->persistenceService->getTableName(), $id]);
+        $this->authorize('updateMe', [$this->persistenceService->getTableName(), $id]);
 
         $request = $request->merge(['id' => $id]);
         $validatedData = $this->validateService->handle($request->all(), 'updateMe');
