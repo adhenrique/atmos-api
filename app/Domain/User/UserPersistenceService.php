@@ -2,12 +2,14 @@
 
 namespace App\Domain\User;
 
+use App\Exceptions\UnauthorizedException;
 use App\Facades\VariablesFacade;
 use App\Mail\ConfirmedMail;
 use App\Mail\NewUserMail;
 use App\Mail\PendingMail;
 use App\Mail\RegisteredMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use LaravelDomainOriented\Services\PersistenceService;
 use LaravelDomainOriented\Models\PersistenceModel;
@@ -107,5 +109,20 @@ class UserPersistenceService extends PersistenceService
         DB::commit();
 
         return $updatedUser;
+    }
+
+    public function updateMe(array $data)
+    {
+        $user = $this->model->query()->where('id', $data['id'])->firstOrFail();
+        $fillable = $this->model->getFillable();
+        $newData = array_filter($data, function ($key) use ($fillable) {
+            return in_array($key, $fillable);
+        }, ARRAY_FILTER_USE_KEY);
+
+        if (Hash::check($data['old_password'], $user->password)) {
+            return $this->update($newData, $data['id']);
+        }
+
+        throw new UnauthorizedException();
     }
 }

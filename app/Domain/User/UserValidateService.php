@@ -40,5 +40,12 @@ class UserValidateService extends ValidateService
             'email' => 'required|string|unique:users,email',
             'password' => 'required',
         ],
+        'updateMe' => [
+            'id' => 'required|integer',
+            'name' => 'required|string',
+            'email' => 'required|string',
+            'password' => 'nullable|confirmed|min:6',
+            'old_password' => 'required',
+        ],
     ];
 }

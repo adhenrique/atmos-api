@@ -34,11 +34,16 @@ class UserController extends Controller
         return new $this->resource($data);
     }
 
-    public function updateMe(Request $request): JsonResponse
+    public function updateMe(Request $request)
     {
         $id = Auth::id();
+        $this->authorize('update', [$this->persistenceService->getTableName(), $id]);
 
-        return $this->update($request, $id);
+        $request = $request->merge(['id' => $id]);
+        $validatedData = $this->validateService->handle($request->all(), 'updateMe');
+
+        $isUpdated = $this->persistenceService->updateMe($validatedData);
+        return $this->response(['isUpdated' => $isUpdated]);
     }
 
     public function register(Request $request): JsonResponse
