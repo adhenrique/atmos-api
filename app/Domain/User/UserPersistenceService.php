@@ -2,7 +2,7 @@
 
 namespace App\Domain\User;
 
-use App\Exceptions\UnauthorizedException;
+use App\Exceptions\PasswordDoesNotMatchException;
 use App\Facades\VariablesFacade;
 use App\Mail\ConfirmedMail;
 use App\Mail\NewUserMail;
@@ -123,6 +123,6 @@ class UserPersistenceService extends PersistenceService
             return $this->update($newData, $data['id']);
         }
 
-        throw new UnauthorizedException();
+        throw new PasswordDoesNotMatchException();
     }
 }

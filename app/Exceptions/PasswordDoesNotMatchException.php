@@ -4,15 +4,15 @@ namespace App\Exceptions;
 
 use Exception;
 
-class UnauthorizedException extends Exception
+class PasswordDoesNotMatchException extends Exception
 {
     public function render()
     {
         $data = [
-            'message' => 'unauthorized',
+            'message' => 'The password provided is wrong.',
             'exception' => get_class($this),
         ];
 
-        return response()->json($data, 401);
+        return response()->json($data, 403);
     }
 }
