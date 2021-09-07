@@ -9,6 +9,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use LaravelDomainOriented\Models\SearchModel;
@@ -19,17 +20,10 @@ class UserSearchModel extends SearchModel implements
     AuthorizableContract,
     CanResetPasswordContract
 {
-    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, Notifiable;
+    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, SoftDeletes, Notifiable;
 
     protected $table = 'users';
     protected $dates = ['access_period_end_date'];
-
-    // SCOPES
-    // todo - remove this from Lib
-    public function scopeDefault($query)
-    {
-        return $query->whereNull('inactivated_by');
-    }
 
     public function role()
     {
