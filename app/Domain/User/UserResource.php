@@ -13,8 +13,7 @@ class UserResource extends Resource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'access_period_start_date' => $this->access_period_start_date,
-            'access_period_end_date' => $this->access_period_end_date,
+            'access_period_end_date' => $this->access_period_end_date->format('Y-m-d'),
             'role_id' => [
                 'label' => $this->role->name,
                 'value' => $this->role_id,
