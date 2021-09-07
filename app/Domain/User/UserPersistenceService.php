@@ -115,9 +115,9 @@ class UserPersistenceService extends PersistenceService
     {
         $user = $this->model->query()->where('id', $data['id'])->firstOrFail();
         $fillable = $this->model->getFillable();
-        $newData = array_filter($data, function ($key) use ($fillable) {
-            return in_array($key, $fillable);
-        }, ARRAY_FILTER_USE_KEY);
+        $newData = array_filter($data, function ($value, $key) use ($fillable) {
+            return in_array($key, $fillable) && $value;
+        }, ARRAY_FILTER_USE_BOTH);
 
         if (Hash::check($data['old_password'], $user->password)) {
             return $this->update($newData, $data['id']);
