@@ -2,15 +2,15 @@
 
 namespace App\Domain\Glossary;
 
+use App\Scopes\NoDeletedScope;
 use LaravelDomainOriented\Models\SearchModel;
 
 class GlossarySearchModel extends SearchModel
 {
     protected $table = 'glossaries';
 
-    // SCOPES
-    public function scopeDefault($query)
+    protected static function booted()
     {
-        return $query->whereNull('inactivated_by');
+        static::addGlobalScope(new NoDeletedScope);
     }
 }

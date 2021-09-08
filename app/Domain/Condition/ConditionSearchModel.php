@@ -2,15 +2,15 @@
 
 namespace App\Domain\Condition;
 
+use App\Scopes\NoDeletedScope;
 use LaravelDomainOriented\Models\SearchModel;
 
 class ConditionSearchModel extends SearchModel
 {
     protected $table = 'conditions';
 
-    // SCOPES
-    public function scopeDefault($query)
+    protected static function booted()
     {
-        return $query->whereNull('inactivated_by');
+        static::addGlobalScope(new NoDeletedScope);
     }
 }

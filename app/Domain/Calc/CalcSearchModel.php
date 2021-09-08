@@ -2,15 +2,15 @@
 
 namespace App\Domain\Calc;
 
+use App\Scopes\NoDeletedScope;
 use LaravelDomainOriented\Models\SearchModel;
 
 class CalcSearchModel extends SearchModel
 {
     protected $table = 'calcs';
 
-    // SCOPES
-    public function scopeDefault($query)
+    protected static function booted()
     {
-        return $query->whereNull('inactivated_by');
+        static::addGlobalScope(new NoDeletedScope);
     }
 }

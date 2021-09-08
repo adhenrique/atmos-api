@@ -2,15 +2,15 @@
 
 namespace App\Domain\DistanceOperator;
 
+use App\Scopes\NoDeletedScope;
 use LaravelDomainOriented\Models\SearchModel;
 
 class DistanceOperatorSearchModel extends SearchModel
 {
     protected $table = 'distance_operators';
 
-    // SCOPES
-    public function scopeDefault($query)
+    protected static function booted()
     {
-        return $query->whereNull('inactivated_by');
+        static::addGlobalScope(new NoDeletedScope);
     }
 }

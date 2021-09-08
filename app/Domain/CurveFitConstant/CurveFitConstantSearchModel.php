@@ -3,6 +3,7 @@
 namespace App\Domain\CurveFitConstant;
 
 use App\Domain\DistanceOperator\DistanceOperatorSearchModel;
+use App\Scopes\NoDeletedScope;
 use LaravelDomainOriented\Models\SearchModel;
 
 class CurveFitConstantSearchModel extends SearchModel
@@ -17,10 +18,9 @@ class CurveFitConstantSearchModel extends SearchModel
         'f' => 'float',
     ];
 
-    // SCOPES
-    public function scopeDefault($query)
+    protected static function booted()
     {
-        return $query->whereNull('inactivated_by');
+        static::addGlobalScope(new NoDeletedScope);
     }
 
     public function distanceOperator()
