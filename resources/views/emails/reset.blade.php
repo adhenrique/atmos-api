@@ -2,7 +2,7 @@
     <table>
         <tr>
             <td>
-                <img src="{{ url('/undraw_forgot_password_gi2d.svg') }}" alt="">
+                <img src="{{ url('/undraw_forgot_password_gi2d.png') }}" alt="">
             </td>
         </tr>
         <tr>

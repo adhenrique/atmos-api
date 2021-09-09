@@ -32,6 +32,6 @@ return [
         'inactive' => 'Inactive',
     ],
     'admin' => [
-        'email' => 'atmos@atmos.com'
+        'email' => env('ADMIN_MAIL', 'i2careproject@gmail.com'),
     ]
 ];

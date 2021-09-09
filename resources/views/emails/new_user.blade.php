@@ -2,7 +2,7 @@
     <table>
         <tr>
             <td>
-                <img src="{{ url('/undraw_skateboard_d6or.svg') }}" alt="">
+                <img src="{{ url('/undraw_skateboard_d6or.png') }}" alt="">
             </td>
         </tr>
         <tr>

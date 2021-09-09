@@ -2,7 +2,7 @@
     <table>
         <tr>
             <td>
-                <img src="{{ url('/undraw_Partying_re_at7f.svg') }}" alt="">
+                <img src="{{ url('/undraw_Partying_re_at7f.png') }}" alt="">
             </td>
         </tr>
         <tr>

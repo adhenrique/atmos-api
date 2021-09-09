@@ -2,7 +2,7 @@
 <table>
 <tr>
 <td>
-<img src="{{ url('/undraw_things_to_say_ewwb.svg') }}" alt="">
+<img src="{{ url('/undraw_things_to_say_ewwb.png') }}" alt="">
 </td>
 </tr>
 <tr>
